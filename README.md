@@ -1,6 +1,8 @@
 ## Use Case:
 
-Let's consider a sample data set in JSON format containing customers transactions over 3 months period. This project reads the data in JSON format and render on the web page in a tabular format.
+Let's consider a sample data set in JSON format containing customers transactions over 3 months period. This project reads the data in JSON format and render on the web page in a tabular format. 
+
+The Functionality works perfectly fine!!! Happy Coding.
 
 ## Tech stack
 
