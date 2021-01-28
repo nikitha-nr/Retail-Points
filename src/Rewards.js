@@ -1,4 +1,7 @@
 import React,{useState} from 'react';
+import { Card } from 'react-bootstrap';
+import './App.css';
+
 
 const Rewards=()=>{
     const transactionData = [
@@ -96,60 +99,56 @@ const Rewards=()=>{
 
         };
         return(
-                <>
                 <div>
-                    <h3>Reward Point Calculation on Name selection:</h3>
-                    <label>Choose a Name:</label>
-                    <select id="sel" onChange={e => setState(e.target.value)} value={custName}>
-                        <option value="Select">Select</option>
-                        <option value="Jake">Jake</option>
-                        <option value="Jill">Jill</option>
-                        <option value="Jack">Jack</option>
-                        <option value="Jane">Jane</option>
-                    </select>
-                     <div>
-                         {transactionData.filter(x => x.custName === custName).map(x => (<div>
-                                                        <p>Name:<b>{x.custName}</b></p>
-                                                        <p>Date of Purchase:<b>{x.date}</b></p>
-                                                        <p>Amount Spent:<b>{x.amountSpent}</b></p>
-                                                        <hr/>
-                                                </div>)
-                                                )  }
-                                                <p>RewardPoints:{getRewardsTotal()}</p>         
-
-                    </div>
-                    </div>
-                    <hr/>
                     <div>
-                    <h3>Reward Point Calculation Rewards By Month:</h3>
-                    <label>Choose a Name:</label>
-                    <select id="sel" onChange={e => setDate(e.target.value)} value={date}>
-                        <option value="Select">Select</option>
-                        <option value="12">Dec</option>
-                        <option value="11">Nov</option>
-                        <option value="10">Oct</option>
-                    </select>
-                     <div>
-                         {transactionData.filter(x => x.date.substring(0,2) === date && x.custName===custName).map(x => (<div>
-                                                        {/* <p>Name:<b>{x.custName}</b></p> */}
-                                                        <p>Date of Purchase:<b>{x.date}</b></p>
-                                                        <p>Amount Spent:<b>{x.amountSpent}</b></p>
-                                                        <hr/>
-                                                </div>)
-                                                )           
-                        }
-                   <p>Reward Points By Month:{getRewardsTotalByMonth()}</p>
-
-                     </div>
-                     
+                        <h5>Reward Point Calculation on Name selection:</h5>
+                        <div>
+                            <label>Choose a Name:</label>
+                            
+                                <select id="sel" onChange={e => setState(e.target.value)} value={custName}>
+                                    <option value="Select">Select</option>
+                                    <option value="Jake">Jake</option>
+                                    <option value="Jill">Jill</option>
+                                    <option value="Jack">Jack</option>
+                                    <option value="Jane">Jane</option>
+                                </select>
+                           
+                            <div>
+                            {transactionData.filter(x => x.custName === custName).map(x => (<div>
+                                                            <p>Name:<b>{x.custName}</b></p>
+                                                            <p>Date of Purchase:<b>{x.date}</b></p>
+                                                            <p>Amount Spent:<b>{x.amountSpent}</b></p>
+                                                            <hr/>
+                                                    </div>)
+                                                    )  }
+                                                    <p><b>Reward Points:{getRewardsTotal()}</b></p>         
+                            </div>
+                        </div>
                     </div>
-                     
-                  
-                    
-                </>
+                    <hr id="separate" />
+                        <div>
+                            <h5>Reward Point Calculation Rewards By Month:</h5>
+                            <label>Choose a Name:</label>
+                            <select id="sel" onChange={e => setDate(e.target.value)} value={date}>
+                                    <option value="Select">Select</option>
+                                    <option value="12">Dec</option>
+                                    <option value="11">Nov</option>
+                                    <option value="10">Oct</option>
+                            </select>
+                          <div>
+                                {transactionData.filter(x => x.date.substring(0,2) === date && x.custName===custName).map(x => (<div>
+                                                                {/* <p>Name:<b>{x.custName}</b></p> */}
+                                                                <p>Date of Purchase:<b>{x.date}</b></p>
+                                                                <p>Amount Spent:<b>{x.amountSpent}</b></p>
+                                                                <hr/>
+                                                                </div>)
+                                                        )           
+                                }
+                                <p><b>Reward Points By Month:{getRewardsTotalByMonth()}</b></p>
+                            </div>                    
+                        </div>
+                </div>
         );
-
-    
 }
 
 export default Rewards;

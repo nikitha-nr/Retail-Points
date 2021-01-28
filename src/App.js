@@ -1,4 +1,3 @@
-import './App.css';
 import Rewards from '.././src/Rewards';
 
 function App() {
