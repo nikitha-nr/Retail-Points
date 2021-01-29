@@ -112,60 +112,88 @@ const Rewards=()=>{
         };
         return(
                 <div>
-                    <Card style={rewardName}>
-                        <Card.Title>Reward Points Calculation - By Name:</Card.Title>
-                        <Card.Body>
-                            <label>Choose a Name: &nbsp; </label>
-                            
-                                <select id="sel" onChange={e => setState(e.target.value)} value={custName}>
-                                    <option value="Select">Select</option>
-                                    <option value="Jake">Jake</option>
-                                    <option value="Jill">Jill</option>
-                                    <option value="Jack">Jack</option>
-                                    <option value="Jane">Jane</option>
-                                </select>
-                           
-                            <div>
-                            {transactionData.filter(x => x.custName === custName).map(x => (<div>
-                                                            <p>Name:<b>{x.custName}</b></p>
-                                                            <p>Date of Purchase:<b>{x.date}</b></p>
-                                                            <p>Amount Spent:<b>{x.amountSpent}</b></p>
-                                                            <hr/>
-                                                    </div>)
-                                                    )  }
-                                                    
-                                                      <footer><p class="footer"><b>Reward Points: &nbsp;{getRewardsTotal()}</b></p></footer>
-                                                           
-                            </div>
-                        </Card.Body>
-                    </Card>
-                    <hr id="separate" />
-                        <Card style={rewardMonth}>
-                            <Card.Title>Reward Points Calculation - By Month:</Card.Title>
-                            <Card.Body>
-                            <label>Choose a Name: &nbsp;</label>
-                            <select id="sel" onChange={e => setDate(e.target.value)} value={date}>
-                                    <option value="Select">Select</option>
-                                    <option value="12">Dec</option>
-                                    <option value="11">Nov</option>
-                                    <option value="10">Oct</option>
-                            </select>
-                          <div>
-                                {transactionData.filter(x => x.date.substring(0,2) === date && x.custName===custName).map(x => (<div>
-                                                                {/* <p>Name:<b>{x.custName}</b></p> */}
-                                                                <p>Date of Purchase:<b>{x.date}</b></p>
-                                                                <p>Amount Spent:<b>{x.amountSpent}</b></p>
-                                                                <hr/>
-                                                                </div>)
-                                                        )           
-                                }
-                                
-                                   <footer><p class="footer"><b>Reward Points By Month: &nbsp;{getRewardsTotalByMonth()}</b></p></footer>
-                                
-                            </div>   
-                            </Card.Body>                 
-                        </Card>
-                </div>
+  <Card style={rewardName}>
+    <Card.Title>Reward Points Calculation - By Name:</Card.Title>
+    <Card.Body>
+      <label>Choose a Name: &nbsp; </label>
+
+      <select
+        id="sel"
+        onChange={(e) => setState(e.target.value)}
+        value={custName}
+      >
+        <option value="Select">Select</option>
+        <option value="Jake">Jake</option>
+        <option value="Jill">Jill</option>
+        <option value="Jack">Jack</option>
+        <option value="Jane">Jane</option>
+      </select>
+
+      <div>
+        {transactionData
+          .filter((x) => x.custName === custName)
+          .map((x) => (
+            <div>
+              <p>
+                Name:<b>{x.custName}</b>
+              </p>
+              <p>
+                Date of Purchase:<b>{x.date}</b>
+              </p>
+              <p>
+                Amount Spent:<b>{x.amountSpent}</b>
+              </p>
+              <hr />
+            </div>
+          ))}
+
+        <footer>
+          <p class="footer">
+            <b>Reward Points: &nbsp;{getRewardsTotal()}</b>
+          </p>
+        </footer>
+      </div>
+    </Card.Body>
+  </Card>
+  <hr id="separate" />
+  <Card style={rewardMonth}>
+    <Card.Title>Reward Points Calculation - By Month:</Card.Title>
+    <Card.Body>
+      <label>Choose a Name: &nbsp;</label>
+      <select id="sel" onChange={(e) => setDate(e.target.value)} value={date}>
+        <option value="Select">Select</option>
+        <option value="12">Dec</option>
+        <option value="11">Nov</option>
+        <option value="10">Oct</option>
+      </select>
+      <div>
+        {transactionData
+          .filter(
+            (x) => x.date.substring(0, 2) === date && x.custName === custName
+          )
+          .map((x) => (
+            <div>
+              {/* <p>Name:<b>{x.custName}</b></p> */}
+              <p>
+                Date of Purchase:<b>{x.date}</b>
+              </p>
+              <p>
+                Amount Spent:<b>{x.amountSpent}</b>
+              </p>
+              <hr />
+            </div>
+          ))}
+
+        <footer>
+          <p class="footer">
+            <b>Reward Points By Month: &nbsp;{getRewardsTotalByMonth()}</b>
+          </p>
+        </footer>
+      </div>
+    </Card.Body>
+  </Card>
+</div>
+
         );
 }
 
