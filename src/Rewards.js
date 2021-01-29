@@ -3,6 +3,18 @@ import { Card } from 'react-bootstrap';
 import './App.css';
 
 
+const rewardName = {
+    width: "50%",
+    marginLeft:"30%",
+    marginTop:40,
+  };
+const rewardMonth = {
+    width: "50%",
+    marginLeft:"30%",
+    marginTop:40,  
+  };
+
+
 const Rewards=()=>{
     const transactionData = [
     {
@@ -100,10 +112,10 @@ const Rewards=()=>{
         };
         return(
                 <div>
-                    <div>
-                        <h5>Reward Points Calculation - By Name:</h5>
-                        <div>
-                            <label>Choose a Name:</label>
+                    <Card style={rewardName}>
+                        <Card.Title>Reward Points Calculation - By Name:</Card.Title>
+                        <Card.Body>
+                            <label>Choose a Name: &nbsp; </label>
                             
                                 <select id="sel" onChange={e => setState(e.target.value)} value={custName}>
                                     <option value="Select">Select</option>
@@ -121,16 +133,17 @@ const Rewards=()=>{
                                                             <hr/>
                                                     </div>)
                                                     )  }
-                                                    <Card>
-                                                        <p><b>Reward Points:{getRewardsTotal()}</b></p> 
-                                                    </Card>        
+                                                    
+                                                      <footer><p class="footer"><b>Reward Points: &nbsp;{getRewardsTotal()}</b></p></footer>
+                                                           
                             </div>
-                        </div>
-                    </div>
+                        </Card.Body>
+                    </Card>
                     <hr id="separate" />
-                        <div>
-                            <h5>Reward Points Calculation - By Month:</h5>
-                            <label>Choose a Name:</label>
+                        <Card style={rewardMonth}>
+                            <Card.Title>Reward Points Calculation - By Month:</Card.Title>
+                            <Card.Body>
+                            <label>Choose a Name: &nbsp;</label>
                             <select id="sel" onChange={e => setDate(e.target.value)} value={date}>
                                     <option value="Select">Select</option>
                                     <option value="12">Dec</option>
@@ -146,11 +159,12 @@ const Rewards=()=>{
                                                                 </div>)
                                                         )           
                                 }
-                                <Card>
-                                    <p><b>Reward Points By Month:{getRewardsTotalByMonth()}</b></p>
-                                </Card>
-                            </div>                    
-                        </div>
+                                
+                                   <footer><p class="footer"><b>Reward Points By Month: &nbsp;{getRewardsTotalByMonth()}</b></p></footer>
+                                
+                            </div>   
+                            </Card.Body>                 
+                        </Card>
                 </div>
         );
 }
